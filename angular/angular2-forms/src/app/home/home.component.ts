@@ -8,6 +8,15 @@ import { Employee } from '../models/emplyee.model';
 })
 export class HomeComponent {
   languages = ["English", "Spanish", "Foo", "Other"];
-  model = new Employee('', 'Smith', true, "w2", "Spanish");
+  model = new Employee('', '', true, 'w2', 'default');
+  hasPrimaryLanguageError = false;
+
+  textToUpperCase(value: string){
+    this.model.firstName = value.toUpperCase();
+  }
+
+  validPrimaryLanguage(value: string){
+      this.hasPrimaryLanguageError = value === 'default';
+  }
 
 }

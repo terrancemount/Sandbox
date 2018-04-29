@@ -1,22 +1,37 @@
 <div class="container">
     <h3>Angular 2 Forms</h3>
     <form #form="ngForm" novalidate>
+        
         <div class="form-group" [class.has-error]='firstName.invalid && firstName.touched'>
             <label class='control-label'>First Name</label>
-            <input #firstName='ngModel' pattern='^Q.*' type='text' name="firstName" class="form-control" 
+            <input 
+                #firstName='ngModel'
+                name='firstName' 
+                pattern='...+' 
+                type='text'
+                class="form-control" 
                 required    
-                [(ngModel)]='model.firstName'>
+                [ngModel]='model.firstName'
+                (ngModelChange)='textToUpperCase($event)'>
                 <div *ngIf='firstName.invalid && firstName.touched' class="alert alert-danger" role="alert">
-                    First Name is required.
+                    First Name is required and must be more then three letters long.
                 </div>
         </div>
         
-<!--
-     [class.has-error]="firstName.invalid && firstName.touched"
-        <div class="form-group">
-            <label>Last Name</label>
-            <input class="form-control" type="text" name="lastName"
-                [(ngModel)] = "model.lastName"/>
+        <div class="form-group"
+            [class.has-error]='lastName.invalid && lastName.touched'>
+            <label class= 'control-label'>Last Name</label>
+            <input 
+                #lastName='ngModel'
+                required
+                pattern='...+'
+                class="form-control" 
+                type="text" 
+                name="lastName"
+                [(ngModel)] = "model.lastName">
+                <div *ngIf='lastName.invalid && lastName.touched' class="alert alert-danger" role="alert">
+                    Last Name is required and must be more then three letters long.
+                </div>
         </div>
         
         
@@ -28,47 +43,59 @@
             </label>
         </div>
 
-        
-        <label>Payment Type</label>
-        <div class="radio">
-            <label>
-                <input type="radio" name="paymentType" value="w2" checked
-                [(ngModel)] = "model.paymentType">
-                W2
-            </label>
-        </div>
-        <div class="radio">
-            <label>
-                <input type="radio" name="paymentType-type" value="1099"
-                [(ngModel)] = "model.paymentType">
-                1099
-            </label>
-        </div>
+       <div class='form-group'>
+            <label>Payment Type</label>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="paymentType" value="w2" checked
+                    [(ngModel)] = "model.paymentType">
+                    W2
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="paymentType" value="1099"
+                    [(ngModel)] = "model.paymentType">
+                    1099
+                </label>
+            </div>
+       </div>
 
-        <div class="form-group">
-            <label>Primary Language</label>
-            <select class="form-control"
-                    name="primaryLanguage"
+        <div class="form-group" [class.has-error] = 'hasPrimaryLanguageError'>
+            <label class='control-label'>Primary Language</label>
+            <select #primaryLanguage class="form-control" name="primaryLanguage"
+                    (blur) = 'validPrimaryLanguage(primaryLanguage.value)'
+                    (change) = 'validPrimaryLanguage(primaryLanguage.value)'
                     [(ngModel)]='model.primaryLanguage'>
+                <option value='default'>Select a language...</option>
                 <option *ngFor="let lang of languages"> 
                     {{lang}}
                 </option>
             </select>
+            <div *ngIf='hasPrimaryLanguageError'class="alert alert-danger" role="alert">
+                Please select a Language.
+            </div>
         </div>
 
+        <!--
         <div class="form-group">
                 <label>Color</label>
                 <input class="form-control" type="color"/>
         </div>
 
    -->
-        <button class="btn btn-primary" type="submit">OK</button>
-        <!--
+        <button class="btn btn-primary" 
+                type="submit"
+                [disabled]='form.invalid'>
+                OK
+        </button>
+    </form>
+    <br>
+    <br>
+    Form.valid: {{ form.valid | json }}
     <br>
     <br>
     Model: {{ model | json }}
     <br>
     Angular: {{ form.value | json }}
-        -->
-    </form>
 </div>
