@@ -1,6 +1,8 @@
-<div class="container">
+
+<h3 *ngIf='languages.length == 0'>Loading...</h3>
+<div class="container" *ngIf='languages.length > 0'>
     <h3>Angular 2 Forms</h3>
-    <form #form="ngForm" novalidate>
+    <form #form="ngForm" (submit)='submitForm(form)' novalidate>
         
         <div class="form-group" [class.has-error]='firstName.invalid && firstName.touched'>
             <label class='control-label'>First Name</label>
@@ -10,9 +12,8 @@
                 pattern='...+' 
                 type='text'
                 class="form-control" 
-                required    
-                [ngModel]='model.firstName'
-                (ngModelChange)='textToUpperCase($event)'>
+                required   
+                [(ngModel)]='model.firstName'>
                 <div *ngIf='firstName.invalid && firstName.touched' class="alert alert-danger" role="alert">
                     First Name is required and must be more then three letters long.
                 </div>
