@@ -6,7 +6,7 @@ import { GithubService } from './github/shared/github.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { BsDatepickerModule } from 'ngx-bootstrap';
+import { BsDatepickerModule, TimepickerModule } from 'ngx-bootstrap';
 
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
@@ -28,6 +28,7 @@ import { FormPoster } from './services/form-poster.service';
     ContactComponent
   ],
   imports: [
+    TimepickerModule.forRoot(),
     BsDatepickerModule.forRoot(),
     BrowserModule,
     FormsModule,

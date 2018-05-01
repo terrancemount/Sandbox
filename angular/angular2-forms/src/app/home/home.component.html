@@ -1,21 +1,24 @@
 
 <h3>Angular 2 Forms</h3>
 <div class='container'>
-<form>
+<form #form>
     <div class="row">
-        <div class="col-xs-12 col-12 col-md-4 form-group">
+        <div class="col-xs-12 col-12 col-sm-4 form-group">
             <input type="text"
+                name='datepicker'
                 placeholder="Datepicker"
                 class="form-control"
+                [(ngModel)]='startDate'
+                [bsConfig]='bsConfig'
                 bsDatepicker>
-        </div>
-        <div class="col-xs-12 col-12 col-md-4 form-group">
-            <input type="text"
-                placeholder="Daterangepicker"
-                class="form-control"
-                bsDaterangepicker>
         </div>
     </div>
 
+    <timepicker name='tp' [(ngModel)]="mytime"></timepicker>
+    
+
 </form>
+
+{{ "startdate: " + startDate }}
+
 </div>

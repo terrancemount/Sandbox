@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import { Employee } from '../models/emplyee.model';
 import { FormPoster } from '../services/form-poster.service';
 import { NgForm } from '@angular/forms';
+import { BsDatepickerConfig } from 'ngx-bootstrap';
 
 @Component({
   selector: 'home',
@@ -13,9 +14,13 @@ export class HomeComponent {
   model = new Employee('', '', true, 'w2', 'default');
   hasPrimaryLanguageError = false;
   employeeId = 0;
-  startDate;
-
+  startDate: Date;
+  myTime: Date;
+  
+  bsConfig: Partial<BsDatepickerConfig>;
+  
   constructor(private formPoster:FormPoster){
+    this.bsConfig = Object.assign({}, { showWeekNumbers: false });
   }
 
  
