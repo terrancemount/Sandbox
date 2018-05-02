@@ -14,8 +14,15 @@
         </div>
     </div>
 
-    <timepicker name='tp' [(ngModel)]="mytime"></timepicker>
+    <timepicker name='tp' 
+            [(ngModel)]="mytime"></timepicker>
     
+    <pre class="card card-block card-header">{{singleModel}}</pre>
+    <button type="button" class="btn btn-primary" #tbtn name='toggleBtn'
+            [(ngModel)]="singleModel" btnCheckbox
+            btnCheckboxTrue="on" btnCheckboxFalse="off">
+        {{ singleModel }}
+    </button>
 
 </form>
 

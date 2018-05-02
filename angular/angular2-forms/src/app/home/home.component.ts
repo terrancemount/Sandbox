@@ -15,7 +15,8 @@ export class HomeComponent {
   hasPrimaryLanguageError = false;
   employeeId = 0;
   startDate: Date;
-  myTime: Date;
+  myTime: Date; 
+  singleModel: string = 'off'
   
   bsConfig: Partial<BsDatepickerConfig>;
   
