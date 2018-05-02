@@ -17,6 +17,8 @@ export class HomeComponent {
   startDate: Date;
   myTime: Date; 
   singleModel: string = 'off'
+  rate: number = 4.5;
+  radioModel = 'Middle';
   
   bsConfig: Partial<BsDatepickerConfig>;
   

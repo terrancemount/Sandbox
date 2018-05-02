@@ -21,10 +21,34 @@
     <button type="button" class="btn btn-primary" #tbtn name='toggleBtn'
             [(ngModel)]="singleModel" btnCheckbox
             btnCheckboxTrue="on" btnCheckboxFalse="off">
-        {{ singleModel }}
+        Toggle button
     </button>
-
+    <br>
+    <rating [(ngModel)]="rate" [max]="10" [readonly]="isReadonly" name='rating' ></rating>
+    <div class="card">
+        <pre class="card-block card-header" style="margin:15px 0;">Rate: <b>{{rate}}</b> </pre>
+    </div>
 </form>
+
+    <pre class="card card-block card-header">{{radioModel || 'null'}}</pre>
+    <div class="btn-group">
+    <label class="btn btn-primary" [(ngModel)]="radioModel"
+            btnRadio="Left" tabindex="0" role="button">Left</label>
+    <label class="btn btn-primary" [(ngModel)]="radioModel"
+            btnRadio="Middle" tabindex="0" role="button">Middle</label>
+    <label class="btn btn-primary" [(ngModel)]="radioModel"
+            btnRadio="Right" tabindex="0" role="button">Right</label>
+    </div>
+    <div class="btn-group" btnRadioGroup [(ngModel)]="radioModel">
+    <label class="btn btn-success" btnRadio="Left"
+            tabindex="0" role="button"
+            name='radio2'>Left</label>
+    <label class="btn btn-success" btnRadio="Middle"
+            tabindex="0" role="button">Middle</label>
+    <label class="btn btn-success" btnRadio="Right"
+            tabindex="0" role="button">Right</label>
+    </div>
+
 
 {{ "startdate: " + startDate }}
 
