@@ -1,10 +1,10 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { EventModel } from '../../models/event.model';
 import { EventService } from '../../services/event.service';
+import { ToastrService } from '../../services/toastr.service';
 
 
 @Component({
-    selector: 'event-list',
     template:`
         <div>
             <h1>Upcoming Angular Events</h1>
@@ -13,6 +13,7 @@ import { EventService } from '../../services/event.service';
             <div class='row'>
                 <div class='col-md-5' *ngFor='let event of events'>
                     <event-thumbnail
+                        (click)='handleThumbnailClick(event.name)'
                         [event] = 'event'
                         (rsvpChange)='changeNumberOfEvents($event)'
                         (eventCostChange)='changeTotalCost($event)'>
@@ -21,29 +22,25 @@ import { EventService } from '../../services/event.service';
             </div>
         </div>
     `
-    
 })
-export class EventListComponent{
+export class EventListComponent implements OnInit{
+    
     events:EventModel[];
     numberOfEventsAttending: number = 0;
     totalEventCost: number = 0;
     selectAll: boolean = false;
 
   
-    constructor(private eventService: EventService){
-      this.events = eventService.getEventList();
+    constructor(private eventService: EventService, private toasterService: ToastrService){
+      
+    }
+    
+    ngOnInit(): void {
+        this.events = this.eventService.getEvents();
     }
 
-    changeNumberOfEvents(goingToEvent: boolean){
-        goingToEvent ? this.numberOfEventsAttending++ : this.numberOfEventsAttending--;
-    }
-
-    changeTotalCost(eventCost: number){
-        this.totalEventCost += eventCost;
-    }
-
-    selectAllClicked(){
-        this.selectAll = !this.selectAll
+    handleThumbnailClick(eventName){
+        this.toasterService.success(eventName);
     }
     
 }

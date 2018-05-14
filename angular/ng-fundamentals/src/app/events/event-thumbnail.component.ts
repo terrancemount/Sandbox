@@ -4,8 +4,7 @@ import { EventModel } from "../../models/event.model";
 @Component({
     selector:'event-thumbnail',
     template:`
-        <div class='well hoverwell thumbnail' [class.going]='goingToEvent'
-            (click)='clickOnEvent()'>
+        <div class='well hoverwell thumbnail' [routerLink]="['/events', event.id]">
             <h2>{{ event?.name}} </h2>
             <div>Date: {{ event?.date }}</div>
             <div [ngSwitch] = 'event?.time'>Time: {{ event?.time }}
@@ -31,28 +30,9 @@ import { EventModel } from "../../models/event.model";
 export class EventThumbnailComponent  {
     
     @Input() event: EventModel;
-    @Input() selectAll: boolean;
-    goingToEvent: boolean;
-    selectAllState: boolean = false;
-    @Output() rsvpChange = new EventEmitter<boolean>();
-    @Output() eventCostChange = new EventEmitter<number>(); 
-
-
+    
     constructor(){
-        this.goingToEvent = false;
-        this.selectAllState = this.selectAll;
     }
     
-    clickOnEvent(){
-        if(!this.goingToEvent)
-            this.eventCostChange.emit(this.event.price);   
-        else
-            this.eventCostChange.emit(this.event.price * -1);
-
-        this.goingToEvent=!(this.goingToEvent); 
-        this.rsvpChange.emit(this.goingToEvent);
-    }
-    
-   
 
 }

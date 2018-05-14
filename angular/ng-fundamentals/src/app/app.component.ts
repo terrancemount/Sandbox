@@ -7,8 +7,8 @@ import { EventModel } from '../models/event.model';
   selector: 'app-root',
   template: `
       <nav-bar></nav-bar>
-      <event-list></event-list>
-      <img src='/assets/images/basic-shield.png'/>`
+      <router-outlet></router-outlet>
+    `
 })
 export class AppComponent {
 
