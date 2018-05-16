@@ -5,6 +5,7 @@ import { CreateEventComponent } from './events/create-event/create-event.compone
 import { Error404Component } from './errors/Error404.component';
 import { EventRouteActivatorGuard } from './guards/event-route-activator.guard';
 import { EventListResolver } from '../services/events-list-resolver.service';
+//import { UserModule } from '../user/user.module';
 
 export const appRoutes:Routes = [
     {path: 'events/new', component: CreateEventComponent,
@@ -13,4 +14,5 @@ export const appRoutes:Routes = [
     {path: 'events/:id', component: EventDetailsComponent, canActivate: [EventRouteActivatorGuard] },
     {path: '404', component: Error404Component},
     {path: '', redirectTo: '/events', pathMatch: 'full'},
+    {path: 'user', loadChildren: '../user/user.module#UserModule'}
 ]
