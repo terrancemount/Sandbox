@@ -1,18 +1,26 @@
+export interface IEvent {
+        id: number,
+        name: string,
+        date: Date,
+        time: string,
+        price: number,
+        imageUrl: string,
+        location?: {
+            address: string,
+            city: string,
+            country: string
+        },
+        onlineUrl?: string,
+        sessions: ISession[]
 
-import { LocationModel } from './location.model';
-import { SessionModel } from './session.model';
-
-
-export class EventModel {
-    constructor(
-        public id: number,
-        public name: string,
-        public date: string,
-        public time: string,
-        public price: number,
-        public imageUrl: string,
-        public location: LocationModel,
-        public sessions: SessionModel[]
-    ){}
 }
 
+export interface ISession {
+    id: number,
+    name: string,
+    presenter: string,
+    duration: number,
+    level: string,
+    abstract: string,
+    voters: string[]
+}

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnChanges } from "@angular/core";
-import { EventModel } from "../models/index";
+import { IEvent } from "../models/index";
 
 @Component({
     selector:'event-thumbnail',
@@ -17,7 +17,6 @@ import { EventModel } from "../models/index";
                 <span>Location: {{ event.location.address }}</span>
                 <span class='pad-left'>{{ event?.location.city }}, {{ event?.location.country }}</span>
             </div>
-            <div>Attending: {{ goingToEvent ? 'yes' : 'no' }}</div>
         </div>
     `,
     styles: [`
@@ -29,7 +28,7 @@ import { EventModel } from "../models/index";
 })
 export class EventThumbnailComponent  {
     
-    @Input() event: EventModel;
+    @Input() event: IEvent;
     
     constructor(){
     }
