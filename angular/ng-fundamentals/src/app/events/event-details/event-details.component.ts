@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../services/index';
-import { EventModel } from '../models/index';
+import { IEvent } from '../models/index';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   `]
 })
 export class EventDetailsComponent implements OnInit {
-  event:EventModel;
+  event:IEvent;
 
   constructor(private eventService: EventService, private route:ActivatedRoute) { }
 
