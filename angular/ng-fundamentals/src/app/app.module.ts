@@ -25,7 +25,7 @@ import {
   ],
   declarations: [
     AppComponent,
-    EventListComponent,
+    EventListComponent, 
     EventThumbnailComponent,
     NavBarComponent,
     EventDetailsComponent,
