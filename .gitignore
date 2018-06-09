@@ -11,3 +11,5 @@ bower_components
 bin
 obj
 packages
+/Java/GuessingGame/nbproject/private/
+/Java/GuessingGame/build/
