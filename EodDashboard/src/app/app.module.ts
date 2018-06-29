@@ -4,10 +4,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GraphComponent } from './graph/graph.component';
+import { HeadComponent } from './head/head.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GraphComponent,
+    HeadComponent
   ],
   imports: [
     BrowserModule,

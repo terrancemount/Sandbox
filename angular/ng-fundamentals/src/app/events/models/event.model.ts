@@ -24,3 +24,4 @@ export interface ISession {
     abstract: string,
     voters: string[]
 }
+
