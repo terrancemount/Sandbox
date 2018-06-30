@@ -14,18 +14,14 @@ export class AppComponent {
   constructor(private _weather: WeatherService) {}
 
   ngOnInit() {
-    this._weather.dailyForecast()
-      .subscribe(res => {
+   
         
-        let temp_max = res['list'].map(res => res.main.temp_max)
-        let temp_min = res['list'].map(res => res.main.temp_min)
-        let alldates = res['list'].map(res => res.dt)
+        let temp_max = [5, 6, 7];
+        let temp_min = [1, 2, 3];
+        
 
-        let weatherDates = []
-        alldates.forEach((res) => {
-          let jsdate = new Date(res * 1000)
-          weatherDates.push(jsdate.toLocaleTimeString('en', { year: 'numeric', month: 'short', day: 'numeric'}))
-        })
+        let weatherDates = ['jam', 'feb', 'mar'];
+       
 
         this.chart = new Chart('canvas', {
           type: 'line',
@@ -57,8 +53,8 @@ export class AppComponent {
               }]
             }
           }
-        })
+        });
 
-      })
+      
   }
 }
