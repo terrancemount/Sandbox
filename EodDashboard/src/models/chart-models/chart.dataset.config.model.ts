@@ -1,5 +1,5 @@
-export interface DatasetConfigModel{
-    datasetConfigId: string;
+export interface ChartDatasetConfigModel{
+
     label: string,
     borderColor: string,
     backgroundColor: string,

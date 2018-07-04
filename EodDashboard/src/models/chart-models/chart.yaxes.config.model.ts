@@ -1,5 +1,5 @@
 //This is a model for labeling the YAxes in chart.js.  
-export interface GraphYAxisConfigModel{
+export interface ChartYaxisConfigModel{
         
     display: boolean, //will be true to show the scale, false to turn off.
     position: string, //ether 'left' or 'right'
