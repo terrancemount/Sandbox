@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GraphPaperComponent } from '../graph-paper/graph-paper.component';
-import { ChartDatasetConfigModel } from '../../../models/chart-models/chart.dataset.config.model';
+import { IChartDatasetConfigModel } from '../../../models/chart-models/chart.dataset.config.model';
+import { ChartService } from '../../../services/chart.service';
 
 @Component({
   selector: 'app-graph-dashboard',
@@ -15,11 +16,18 @@ export class GraphDashboardComponent implements OnInit {
     naturalgas:true,
     outsidetemperature:true
   };
-  constructor() { }
+  constructor(private _chartService: ChartService) { }
 
   ngOnInit() {
-    
+    let numArray: number[];
+    let dateArray: Date [];
+
     this.chart.chartBuild();
+    numArray = this._chartService.createRandomNumberArray(5, 1, 100);
+    dateArray = this._chartService.createRandomDateArray(5, new Date('7/7/2018'), 15);
+
+    console.log(numArray);
+    console.log(dateArray);
   }
 
   testbutton(){
@@ -34,13 +42,13 @@ export class GraphDashboardComponent implements OnInit {
   }
 
 
-  getSensorDatasets(buildingId: string):ChartDatasetConfigModel[]{
-      let ds: ChartDatasetConfigModel[] = [{
+  getSensorDatasets(buildingId: string):IChartDatasetConfigModel[]{
+      let ds: IChartDatasetConfigModel[] = [{
+        id: "1",
         label: 'Electrical Demand',
         borderColor: 'rgb(255, 205, 86)',
         backgroundColor:'rgba(255, 205, 86,1)',
         fill: false,
-        data: [5, 6, 3, 4],
         yAxisID: 'electrical_demand',
         hidden: false
       }];

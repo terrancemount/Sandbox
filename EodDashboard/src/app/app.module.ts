@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GraphDashboardComponent } from './graph/graph-dashboard/graph-dashboard.component';
 import { GraphPaperComponent } from './graph/graph-paper/graph-paper.component';
+import { ChartService } from '../services/chart.service';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { GraphPaperComponent } from './graph/graph-paper/graph-paper.component';
     AppRoutingModule
 
   ],
-  providers: [],
+  providers: [ChartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

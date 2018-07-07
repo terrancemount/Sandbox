@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Chart } from '../../../../node_modules/chart.js/dist/chart.min.js';
-import { ChartDatasetConfigModel } from '../../../models/chart-models/chart.dataset.config.model';
+import { IChartDatasetConfigModel } from '../../../models/chart-models/chart.dataset.config.model';
 
 
 @Component({
@@ -31,15 +31,44 @@ config = DEFAULT_CHART_CONFIG;
 
   ngOnInit() {      
   }
+  hideDataset(datasetId:string):boolean{
+    let findResult = this.config.data.datasets.find(x => x.id === datasetId);
 
+    if(findResult != undefined){
+      findResult.hidden = true;
+    }
+    else{
+      console.log("hideDataset id not found (id = " + datasetId + ")");
+      return false; //unable to hide the data
+    }
+  }
 
-  //todo: make this function.
-  addDataset(dataset: ChartDatasetConfigModel){
-    console.log (dataset);
-    this.config.data.datasets.push(dataset);
-    //console.log('pushing data');
+  showDataset(datasetId:string):void{
+    let findResult = this.config.data.datasets.find(x => x.id === datasetId);
+
+    if(findResult != undefined)
+      findResult.hidden = true;
 
   }
+  toggleDataset(datasetId:string):void{
+
+  }
+
+  //todo: make this function.
+  addDataset(dataset: IChartDatasetConfigModel):void{
+    let findResult = this.config.data.datasets.find(x => x.id == dataset.id);
+
+    if(findResult == undefined)
+      this.config.data.datasets.push(dataset);
+    else
+      this.removeDataset(dataset.id);
+  }
+  
+  removeDataset(datasetId: string):void{
+      this.config.data.datasets = this.config.data.datasets.filter(x => x.id !== datasetId); 
+  }
+  
+  
 
   chartUpdate(){
     this.chart.update();

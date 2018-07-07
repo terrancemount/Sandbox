@@ -1,10 +1,9 @@
-export interface ChartDatasetConfigModel{
-
+export interface IChartDatasetConfigModel{
+    id: string,
     label: string,
     borderColor: string,
     backgroundColor: string,
     fill: boolean,
-    data: number[],
     yAxisID: string,
     hidden: boolean
 }
