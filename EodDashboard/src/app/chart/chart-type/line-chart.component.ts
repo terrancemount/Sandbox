@@ -12,7 +12,7 @@ import { IChartDatasetConfigModel } from '../../../models/chart-models/chart.dat
       </div>
     `
 })
-export class GraphPaperComponent implements OnInit, OnChanges {
+export class LineChartComponent implements OnInit, OnChanges {
 @Input() dateTimeData;
 @Input() electrialData;
 @Input() naturalGasData;

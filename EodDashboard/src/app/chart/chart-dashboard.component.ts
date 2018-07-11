@@ -1,15 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { GraphPaperComponent } from '../graph-paper/graph-paper.component';
-import { IChartDatasetConfigModel } from '../../../models/chart-models/chart.dataset.config.model';
-import { ChartService } from '../../../services/chart.service';
+
+import { IChartDatasetConfigModel } from '../../models/chart-models/chart.dataset.config.model';
+import { ChartService } from '../../services/chart.service';
+import { LineChartComponent } from './chart-type/line-chart.component';
+
+
 
 @Component({
   selector: 'app-graph-dashboard',
-  templateUrl: './graph-dashboard.component.html',
+  templateUrl: './chart-dashboard.component.html',
   styles: []
 })
-export class GraphDashboardComponent implements OnInit {
-  @ViewChild(GraphPaperComponent) chart;
+export class ChartDashboardComponent implements OnInit {
+  @ViewChild(LineChartComponent) chart;
 
   sensor = {
     electrical:true,
@@ -43,15 +46,7 @@ export class GraphDashboardComponent implements OnInit {
 
 
   getSensorDatasets(buildingId: string):IChartDatasetConfigModel[]{
-      let ds: IChartDatasetConfigModel[] = [{
-        id: "1",
-        label: 'Electrical Demand',
-        borderColor: 'rgb(255, 205, 86)',
-        backgroundColor:'rgba(255, 205, 86,1)',
-        fill: false,
-        yAxisID: 'electrical_demand',
-        hidden: false
-      }];
-      return ds;
+     
+      return ;
   }
 }

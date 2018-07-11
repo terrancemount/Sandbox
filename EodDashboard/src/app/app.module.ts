@@ -4,16 +4,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GraphDashboardComponent } from './graph/graph-dashboard/graph-dashboard.component';
-import { GraphPaperComponent } from './graph/graph-paper/graph-paper.component';
+
 import { ChartService } from '../services/chart.service';
+import { LineChartComponent } from './chart/chart-type/line-chart.component';
+import { ChartDashboardComponent } from './chart/chart-dashboard.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GraphDashboardComponent,
-    GraphPaperComponent
+    LineChartComponent,
+    ChartDashboardComponent
+
   ],
   imports: [
     BrowserModule,
