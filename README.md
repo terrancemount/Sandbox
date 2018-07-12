@@ -5,3 +5,6 @@ I am creating this readme file so I can track my learning progress.  I wish myse
 
 4/28/2018
 I am working more on my pluralsight training for Angular 2.  I have rebuilt this repository to contain all my trial stuff.  Hopefully this will be painless to upload to git.  
+
+7/12/2018
+Working on project for UAA called EodDashboard.  It will display graphs for sensors in the EIB building.  I want to get the graphing done soon.  Yeah.  
