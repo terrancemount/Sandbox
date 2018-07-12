@@ -5,24 +5,23 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { ChartService } from '../services/chart.service';
-import { LineChartComponent } from './chart/chart-type/line-chart.component';
-import { ChartDashboardComponent } from './chart/chart-dashboard.component';
+import { DashboardModule } from '../dashboard/dashboard.module';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LineChartComponent,
-    ChartDashboardComponent
+
 
   ],
   imports: [
     BrowserModule,
+    DashboardModule,
     AppRoutingModule
 
   ],
-  providers: [ChartService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

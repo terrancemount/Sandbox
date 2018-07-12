@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { IChartDatasetConfigModel } from '../models/chart-models/chart.dataset.config.model';
-import { ISenorDataModel } from '../models/sensor-models/sensor.data.model';
+import { IChartDatasetConfigModel } from '../model/chart.dataset.config.model';
+
 
 @Injectable()
 export class ChartService {
