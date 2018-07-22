@@ -6,7 +6,7 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class EventService {
   
-    getEvents():Observable<IEvent[]>{
+    getEvents():Subject<IEvent[]>{
       let subject = new Subject<IEvent[]>();
       setTimeout(() => {
         subject.next(EVENTS); 
@@ -27,6 +27,15 @@ export class EventService {
       event.sessions = [];
       EVENTS.push(event);
 
+    }
+
+    //this will replace the event in the EVENTS array with the parameter event
+    updateEvent(event){
+      //find the event.  Will return -1 if event is not found.  no error checking
+      let index = EVENTS.findIndex(x => x.id = event.id); //this will find the index in the array defined by the callback function.
+      
+      //replace the event
+      EVENTS[index] = event;
     }
 }
 

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Resolve } from "@angular/router";
 import { EventService } from "./event.service";
-import 'rxjs/Rx';
+import { map } from 'rxjs/operators'
 
 @Injectable()
 
@@ -10,6 +10,6 @@ export class EventListResolver implements Resolve<any> {
     constructor(private eventService:EventService){}
 
     resolve() {
-        return this.eventService.getEvents().map(events => events);    
+        return this.eventService.getEvents().pipe(map(events => events));    
     }
 }

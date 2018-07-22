@@ -1,19 +1,21 @@
+<!-- Display the details on an event with a child component for sessions -->
 <div class='container'>
   <img [src]="event?.imageUrl" [alt]="event?.name" class='event-image'>
 
-  <div class="row">
+  <!-- Disply Event name -->
+  <div class='row'>
     <div class="col-md-11">
-      <h2>{{event?.name}} </h2>
+      <h2>{{event?.name | uppercase }} </h2>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-6">
-      <div><strong>Date:</strong> {{event?.date}}</div>
+  <div class='row'>
+    <div class='col-md-6'>
+      <div><strong>Date:</strong> {{event?.date | date:'shortDate' }}</div>
       <div><strong>Time:</strong> {{event?.time}}</div>
-      <div><strong>Price:</strong> ${{event?.price}}</div>
+      <div><strong>Price:</strong> {{event?.price | currency:'USD'}}</div>
     </div>
-    <div class="col-md-6">
+    <div class='col-md-6'>
       <address>
         <strong>Address:</strong><br />
         {{event?.location?.address}}<br />
@@ -21,5 +23,25 @@
       </address>
     </div>
   </div>
+  <hr>
+  <!-- Sessions Headder Row with link to add a session -->
+  <div class='row'>
+    <div class='col-md-2'>
+      <h3 style='margin:0'>Sessions</h3>
+    </div>
+  
+    <!-- Link to add a session -->
+    <div class='col-md-2'>
+      <!-- Anchor tag below doesn't have an href so it needs styling to have a pointer cursor.  This styling is added to the class rather then the html. -->
+      <a (click)='addSession()'>Add Session</a> 
+    </div>
+  </div>
+
+  <!-- Child component to display a list of sessions for this event -->
+  <!-- Note this will only show if not in addMode from the component -->
+  <session-list *ngIf='!addMode' [sessions]='event?.sessions'></session-list>
+
+  <create-session *ngIf='addMode' (saveNewSession)='saveNewSession($event)'
+                    (cancelAddSession)='cancelAddSession()'></create-session>
 
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-import { IEvent } from '../models/index';
-import { EventService } from '../services/index';
-import { ToastrService } from '../../../services/toastr.service';
+import { IEvent } from '../models';
+import { EventService } from '../services';
+import { ToastrService } from '../../../common/toastr.service';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -26,7 +26,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EventListComponent implements OnInit{
     
-    events: IEvent[];
+    events: any;
     numberOfEventsAttending: number = 0;
     totalEventCost: number = 0;
     selectAll: boolean = false;

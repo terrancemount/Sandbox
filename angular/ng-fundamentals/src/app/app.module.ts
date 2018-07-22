@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav/navbar.component';
-import { ToastrService } from '../services/toastr.service';
+import { ToastrService } from '../common/toastr.service';
 import { appRoutes } from './routes';
 import { Error404Component } from './errors/Error404.component';
 
@@ -16,10 +16,13 @@ import {
   EventListResolver,
   EventService,
   EventThumbnailComponent,
-  CreateSessionComponent 
-} from './events/index';
+  CreateSessionComponent,
+  SessionListComponent 
+} from './events';
 import { AuthService } from '../user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Session } from 'protractor';
+import { CollapsibleWellComponent } from '../common/collapsible-well.component';
 
 @NgModule({
   imports: [
@@ -36,7 +39,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EventDetailsComponent,
     CreateEventComponent,
     Error404Component,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent,
+    CollapsibleWellComponent,
   ],
   providers:[
     EventService, 
