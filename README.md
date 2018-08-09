@@ -8,3 +8,6 @@ I am working more on my pluralsight training for Angular 2.  I have rebuilt this
 
 7/12/2018
 Working on project for UAA called EodDashboard.  It will display graphs for sensors in the EIB building.  I want to get the graphing done soon.  Yeah.  
+
+8/9/2018
+I am going to be pulling the different projects out into different repositories.  Also I am going to make a simple website hosted on git hub for now.  
